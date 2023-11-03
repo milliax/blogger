@@ -1,23 +1,23 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
+  title: `Milliax's Little World`,
+  author: 'Milliax',
+  headerTitle: 'Milliax Blog',
+  description: `Milliax's Little World`,
+  language: 'zh-TW',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://blogger.milliax.me',
+  siteRepo: 'https://github.com/milliax/blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
+  email: 'milliax.mg@nycu.edu.tw',
+  github: 'https://github.com/milliax',
+  twitter: 'https://twitter.com/milliacs',
+  facebook: 'https://facebook.com/milliacs',
+  youtube: 'https://youtube.com/channel/UCn_zw_Q1UtyAWPRsD1e5zcQ',
   linkedin: 'https://www.linkedin.com',
-  locale: 'en-US',
+  locale: 'zh-TW',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -69,7 +69,7 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      lang: 'zh',
     },
   },
   search: {
