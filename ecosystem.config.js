@@ -2,7 +2,7 @@ module.exports = {
     apps:[{
         name: "milliax blog",
         script: "yarn",
-        args: "start",
+        args: "serve",
         instances: 'max',
         exec_mode: 'cluster',
         autorestart: true,
