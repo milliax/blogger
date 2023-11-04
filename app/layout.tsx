@@ -3,7 +3,7 @@ import 'pliny/search/algolia.css'
 
 import localFont from 'next/font/local'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import {Analytics as CustomAnalytics} from '@/components/Analytics'
+import { Analytics as CustomAnalytics } from '@/components/Analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
@@ -76,7 +76,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
                 <ThemeProviders>
                     <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-                    <CustomAnalytics analyticsConfig={siteMetadata.analytics as any}/>
+                    <CustomAnalytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig & {
+                        clarityAnalytics?: {
+                            clarityAnalyticsId: string
+                        }
+                    }} />
                     <SectionContainer>
                         <div className="flex h-screen flex-col justify-between font-sans">
                             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>

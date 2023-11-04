@@ -1,11 +1,12 @@
+import { AnalyticsConfig } from 'pliny/analytics'
 import Script from "next/script"
 
 export const Analytics = ({
     analyticsConfig,
 }: {
-    analyticsConfig?: {
-        [id: string]: {
-            [id: string]: string
+    analyticsConfig: AnalyticsConfig & {
+        clarityAnalytics?: {
+            clarityAnalyticsId: string
         }
     }
 }) => {
