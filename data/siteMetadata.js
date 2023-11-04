@@ -36,6 +36,9 @@ const siteMetadata = {
     googleAnalytics: {
       googleAnalyticsId: 'G-BZBZ2GVX04', // e.g. G-XXXXXXX
     },
+    clarityAnalytics: {
+        clarityAnalyticsId: 'jla4nblvoi',
+    }
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus

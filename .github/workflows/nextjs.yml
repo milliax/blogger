@@ -120,4 +120,4 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} build
       - name: Start the app
-        run: pm2 startOrReload ${{ github.workspace }}/ecosystem.config.js --update-env --env production
+        run: pm2 startOrReload ${{ github.workspace }}/ecosystem.config.js --env production
