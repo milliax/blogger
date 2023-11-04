@@ -90,14 +90,13 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
-      - name: Build on self-hosted
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{matrix.node-version}}
-          cache: 'yarn'
+        run: yarn
       - name: Build the application
+        if: success()
         run: yarn build
       - name: Start the app
-        run: pm2 restart milliax blogger
+        if: success()
+        run: pm2 startOrReload ${{ github.workspace }}/ecosystem.config.js --update-env
