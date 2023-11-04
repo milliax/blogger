@@ -95,8 +95,6 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build the application
-        if: success()
         run: yarn build
       - name: Start the app
-        if: success()
         run: pm2 startOrReload ${{ github.workspace }}/ecosystem.config.js --update-env
