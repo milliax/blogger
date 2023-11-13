@@ -40,6 +40,6 @@
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"
-  ],
+, "scripts/generate_blur_images.cjs"  ],
   "exclude": ["node_modules"]
 }
