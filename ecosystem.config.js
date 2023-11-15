@@ -1,7 +1,7 @@
 module.exports = {
     apps:[{
         name: "milliax blog",
-        script: "yarn",
+        script: "pnpm",
         args: "serve",
         instances: 'max',
         exec_mode: 'cluster',
