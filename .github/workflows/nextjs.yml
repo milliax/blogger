@@ -67,7 +67,8 @@ jobs:
       - run: pnpm install
 
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.manager }} build
+        # run: ${{ steps.detect-package-manager.outputs.manager }} build
+        run: pnpm build
   
   # Deployment job
   deploy:
