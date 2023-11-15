@@ -1,5 +1,5 @@
 module.exports = {
-    apps:[{
+    apps: [{
         name: "milliax blog",
         script: "pnpm",
         args: "serve",
@@ -10,9 +10,13 @@ module.exports = {
         watch: false,
         out_file: '../logs/out.log',
         error_file: '../logs/error.log',
-        env_production: {
+        // env_production: {
+        //     NODE_ENV: "production",
+        //     PORT: 5000
+        // }
+        env: {
             NODE_ENV: "production",
-            PORT: 5000
+            PORT: "5000",
         }
     }]
 }
