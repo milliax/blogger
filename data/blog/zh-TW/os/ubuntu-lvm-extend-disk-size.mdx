@@ -1,0 +1,27 @@
+---
+title: 重新配置空間給 lvm
+date: '2023-01-29'
+tags: ['os', 'ubuntu', 'fdisk']
+draft: true
+summary: 'Tell you how to resize the lvm disk size of ubuntu'
+---
+
+常常在我們建立完 VM 後想要再增添硬碟給客機，但在 proxmox 或者是 virtual box 設定完後，
+卻發現硬碟的空間雖然增加了，但沒有辦法好好的運用。
+因此我們在這篇教學文章中，要介紹的是如何將冗餘未配置的空間，分配給 LVM 使用。
+
+# 加長磁碟分割空間
+
+在這邊我們使用 fdisk 刪除舊有的分區，並使用 resize2fs 調整磁區大小。
+
+<block>
+
+</block>
+
+# 藉由 lvm 調整根目錄大小
+
+```bash
+lvresize ubuntu-vg/ubuntu-lv -L 150G
+
+lvresize ubuntu-vg/ubuntu-lv -L +20G
+```
