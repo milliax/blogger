@@ -1,6 +1,6 @@
 ---
 title: 重新配置空間給 lvm
-date: '2023-01-29'
+date: '2024-01-29'
 tags: ['os', 'ubuntu', 'fdisk']
 draft: true
 summary: 'Tell you how to resize the lvm disk size of ubuntu'
@@ -14,14 +14,82 @@ summary: 'Tell you how to resize the lvm disk size of ubuntu'
 
 在這邊我們使用 fdisk 刪除舊有的分區，並使用 resize2fs 調整磁區大小。
 
-<block>
+因為我們要變更的磁碟是系統碟，因此我們必須使用光碟/映像檔開機
 
-</block>
+## 使用 ubuntu live iso 開機
+
+在完成載入後，我們進入 tty2
+
+## 刪除原分區(/dev/sda3)
+
+```
+root@ubuntu:~# fdisk /dev/sda -l
+```
+先記錄 /dev/sda3 的開始磁碟柱
+
+然後刪除如以下操作
+
+```
+root@ubuntu:~# fdisk /dev/sda
+
+Welcome to fdisk (util-linux 2.38.1).
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Command (m for help): d
+Partition number (1-3, default 3): 3
+
+Partition 3 has been deleted.
+
+Command (m for help): d
+
+Command (m for help): w
+
+```
+
+## 延伸原有磁碟
+
+```
+root@ubuntu:~# resize2fs /dev/sda3
+```
+
+## 確認磁碟機大小
+
+查看 /dev/sda3 是否已經變大ㄌ
+```
+root@ubuntu:~# lsblk
+```
+
+# 更新 lvm 配置
+
+當磁碟機已經擴充完成後，便可以增大lvm的空間了
+
+## 查看 lvm 可用空間
+
+```
+root@ubuntu:~# pvdisplay
+```
+
+## 更新 lvm 可配置空間上限
+
+讓 pv 更新 lvm 可以使用的容量上限 
+
+```
+root@ubuntu:~# pvresize /dev/sda3
+Physical volume "/dev/sda3" changed
+1 physical volume(s) resized or updated / 0 physical volume(s) not resized
+```
 
 # 藉由 lvm 調整根目錄大小
 
-```bash
-lvresize ubuntu-vg/ubuntu-lv -L 150G
-
+```
 lvresize ubuntu-vg/ubuntu-lv -L +20G
+```
+
+## 查看 lvm 大小
+
+一樣藉由 lsblk 查看更新後的 lvm 大小
+
+```
+root@ubuntu:~# lsblk
 ```
