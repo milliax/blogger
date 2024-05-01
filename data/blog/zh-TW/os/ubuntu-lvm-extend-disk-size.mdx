@@ -1,6 +1,7 @@
 ---
 title: 重新配置空間給 LVM
 date: '2024-01-29'
+lastmod: '2024-05-02'
 tags: ['os', 'ubuntu', 'fdisk']
 draft: false
 summary: '怎麼樣在不刪除檔案的情況下擴充 linux 磁區空間 (LVM)'
@@ -84,16 +85,32 @@ Physical volume "/dev/sda3" changed
 1 physical volume(s) resized or updated / 0 physical volume(s) not resized
 ```
 
-# 藉由 lvm 調整根目錄大小
+# 調整lvm大小
+
+## 查看 lvm 空間
+
+```
+vgdisplay
+```
+
+## 更新 lvm 大小
 
 ```
 lvresize ubuntu-vg/ubuntu-lv -L +20G
 ```
 
-## 查看 lvm 大小
+## 使其lvm 套用變更
+
+```
+resize2fs /dev/ubuntu-vg/ubuntu-lv
+```
+
+## 查看 lvm 實際配置大小
 
 一樣藉由 lsblk 查看更新後的 lvm 大小
 
 ```
-root@ubuntu:~# lsblk
+df -h
+
+lsblk
 ```
