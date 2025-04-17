@@ -11,7 +11,7 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'milliax.mg@nycu.edu.tw',
+  email: 'maxchengboy@gmail.com',
   github: 'https://github.com/milliax',
   twitter: 'https://twitter.com/milliacs',
   facebook: 'https://facebook.com/milliacs',
